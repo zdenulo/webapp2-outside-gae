@@ -1,0 +1,9 @@
+[Unit]
+Description=gunicorn deamon
+After=network.target
+
+[Service]
+User=<username>
+Group=www-data
+WorkingDirectory=/home/<username>/webapp-no-gae
+ExecStart=/usr/local/bin/gunicorn --workers 2 --bind unix:///tmp/webapp.sock main:app
